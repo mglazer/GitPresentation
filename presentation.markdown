@@ -113,4 +113,25 @@ Working with branches
   issue tracker.
 * For example, let's say I have a JIRA issue #1234 that tells me I have a
   spelling mistake in my document.
+    # git branch master 1234-spelling-mistake
+    # git checkout 1234-spelling-mistake
+    # edit presentation.markdown
+    # git commit -am "Fixed spelling mistake"
+* Now I would like to merge back into the master branch:
+    # git checkout 1234-spelling-mistake
+    # git fetch origin master
+    # git rebase origin/master
+    # git checkout master
+    # git merge 1234-spelling-mistake
+    # git push origin master
+* What did we do here? First we made sure we were still working on our feature
+  branch. Then we ensured that we had the latest master branch version from the
+origin repository. When then performed a rebase, this fast forwards our current
+branch so that it contains all of the changes from the listed branch. We then
+switch back to the master branch and merge the changes from our feature branch
+into the master branch. Finally, we can push our changes to the remote
+repository.
 
+
+
+[1] http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
