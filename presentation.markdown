@@ -132,6 +132,35 @@ switch back to the master branch and merge the changes from our feature branch
 into the master branch. Finally, we can push our changes to the remote
 repository.
 
+Interactive Rebase
+------------------
 
+* Generally when you branch, you can expect to have lots of individual commits.
+* Most of the time you don't want these individual commits to appear in the
+  repository history.
+* git lets you "squash" these into one individual commit.
+* Type:
+    # git rebase -i master
+* You'll get an editor window that looks like this:
+    pick 341e027 Added a new bullet point
+    pick 12fd986 Added an important bullet point
+    pick ae29d44 Done adding bullet points
+* Edit the file such that it looks like this:
+    pick 341e027 Added a new bullet point
+    squash 12fd986 Added an important bullet point
+    squash ae29d44 Done adding bullet points
+* Save and quit, you'll then get a new editor window that allows you to enter in
+  the actual commit message, enter in something useful like this:
+    [#1234] Fixed spelling mistakes
+
+    * Added a few bullet points 
+    * Fixed a few spelling mistakes
+* Save and quit.
+* Now switch back to the master branch and merge back your changes:
+    # git checkout master
+    # git merge 1234-spelling-mistake
+
+    
+    
 
 [1] http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
