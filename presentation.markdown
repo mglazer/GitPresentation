@@ -159,8 +159,54 @@ Interactive Rebase
 * Now switch back to the master branch and merge back your changes:
     # git checkout master
     # git merge 1234-spelling-mistake
+    # git push origin master
+
+
+Tagging Releases
+----------------
+
+* Remember in the good ol' days of subversion where you would perform a copy of
+  your entire trunk in order to tag a release?
+* git makes this far easier:
+    # git tag v1.0.0
+    # git tag
+    v1.0.0
+* To then switch to this tag at a later date, type:
+    # git checkout v1.0.0
+* Can also digital sign tags with PGP. See [2]
+
+GUIs
+----
+
+* gitk - Neat little GUI for examining a git history. Can't edit.
+* gitweb - Web based git repository browser.
+* Other more "friendly" interfaces being actively developed (but command line
+  still rules).
+
+
+But I'm forced to use subversion
+--------------------------------
+
+* You can use svk [3], it's a set of Perl scripts that sits on top of subversion
+  and lets you perform distributed development.
+* /git svn/ is a tool providing bidirectional flow of changes between a
+  Subversion and a git repository.
+** I've never used it, has a long list of caveats and things it cannot do.
+
+Other neat git features
+-----------------------
+
+* Look in the .git directory (there's only one, it's at the base of your tree)
+** .git/config - holds handy configuration data about the current repository.
+** .git/description - use primarily by gitweb for providing a description of
+your repository
+** .git/hooks - A number of hook scripts that can be run at various times during
+the development process (ie: make sure tests are run before doing a commit)
+
 
     
     
 
 [1] http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
+[2] Digitally signing with PGP.
+[3] svk
