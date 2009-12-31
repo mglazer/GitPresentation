@@ -183,6 +183,7 @@ GUIs
 * gitweb - Web based git repository browser.
 * Other more "friendly" interfaces being actively developed (but command line
   still rules).
+    * Checkout [zsh with vcs_info][vcs_info]
 
 
 But I'm forced to use subversion
@@ -205,11 +206,13 @@ your repository
 the development process (ie: make sure tests are run before doing a commit)
 
 
-    
-    
+References
+----------
 
 [mergetool]
 http://gitguru.com/2009/02/22/integrating-git-with-a-visual-merge-tool/
 "Integrating Git With a Visual Merge Tool"
 [workflow] http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
 [svk] http://svk.bestpractical.com/view/HomePage 
+[vcs_info] http://kriener.org/articles/2009/06/04/zsh-prompt-magic "ZSH Prompt
+Magic"
