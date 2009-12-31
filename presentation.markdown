@@ -45,31 +45,31 @@ Simple Starter Example
 ----------------------
 
 * Initialize repository in current directory:
-    # ls
-    presentation.markdown
-    # git init
+        # ls
+        presentation.markdown
+        # git init
 * Add files to repository:
-    # git add presentation.markdown
+        # git add presentation.markdown
 * Commit changes:
-    # git commit -m "Initial commit"
+        # git commit -m "Initial commit"
 * Make changes:
-    # edit presentation.markdown
-    # git add presentation.markdown
-    # git commit -am "Edited presentation.markdown"
+        # edit presentation.markdown
+        # git add presentation.markdown
+        # git commit -am "Edited presentation.markdown"
 
 
 Working with a remote repository
 --------------------------------
 
 * Push our repository into a remote one (github used for convenience):
-    # git remote add origin git@github.com:mglazer/GitPresentation.git
-    # git push origin master
+        # git remote add origin git@github.com:mglazer/GitPresentation.git
+        # git push origin master
 * Syntax of git push:
-    git push <repository> <branch>
+        git push <repository> <branch>
 * repository is the name of the remote repository, get listing by typing:
-    # git remote -v
-    origin	git@github.com:mglazer/GitPresentation.git (fetch)
-    origin	git@github.com:mglazer/GitPresentation.git (push)
+        # git remote -v
+        origin	git@github.com:mglazer/GitPresentation.git (fetch)
+        origin	git@github.com:mglazer/GitPresentation.git (push)
 
 * branch is the name of the branch to push to the remote repository. More on
   this later, *master* is an automatically created default.
@@ -78,31 +78,31 @@ Cloning a remote repository
 ---------------------------
 
 * Get contents of remote repository:
-    # git clone git://github.com/mglazer/GitPresentation.git
-    # ls
-    GitPresentation/
-    # cd GitPresentation
-    # git remote -v
-    origin	git://github.com/mglazer/GitPresentation.git (fetch)
-    origin	git://github.com/mglazer/GitPresentation.git (push)
+        # git clone git://github.com/mglazer/GitPresentation.git
+        # ls
+        GitPresentation/
+        # cd GitPresentation
+        # git remote -v
+        origin	git://github.com/mglazer/GitPresentation.git (fetch)
+        origin	git://github.com/mglazer/GitPresentation.git (push)
 * Make some changes
-    # edit presentation.markdown
-    # git commit -am "Made some spelling corrections"
-    # git push origin master
+        # edit presentation.markdown
+        # git commit -am "Made some spelling corrections"
+        # git push origin master
 
 Pulling in changes from a remote repository
 -------------------------------------------
 
 * Before you can successfully push to a remote repository, you have to make sure
   that you pull in the most recent changes. Workflow:
-    # git commit -am "Committing most recent changes"
-    # git pull origin master
+        # git commit -am "Committing most recent changes"
+        # git pull origin master
 * At this point there may be conflicts. /git mergetool/ helps here, but you can
   also fix the problems yourself. [See setting up mergetool][mergetool]
 * Once problems are fixed, type:
-    # git add file_in_conflict.txt
-    # git commit -am "Fixed merge conflicts"
-    # git push origin master
+        # git add file_in_conflict.txt
+        # git commit -am "Fixed merge conflicts"
+        # git push origin master
 
 
 Working with branches
@@ -114,17 +114,17 @@ Working with branches
   issue tracker.
 * For example, let's say I have a JIRA issue #1234 that tells me I have a
   spelling mistake in my document.
-    # git branch master 1234-spelling-mistake
-    # git checkout 1234-spelling-mistake
-    # edit presentation.markdown
-    # git commit -am "Fixed spelling mistake"
+        # git branch master 1234-spelling-mistake
+        # git checkout 1234-spelling-mistake
+        # edit presentation.markdown
+        # git commit -am "Fixed spelling mistake"
 * Now I would like to merge back into the master branch:
-    # git checkout 1234-spelling-mistake
-    # git fetch origin master
-    # git rebase origin/master
-    # git checkout master
-    # git merge 1234-spelling-mistake
-    # git push origin master
+        # git checkout 1234-spelling-mistake
+        # git fetch origin master
+        # git rebase origin/master
+        # git checkout master
+        # git merge 1234-spelling-mistake
+        # git push origin master
 * What did we do here? First we made sure we were still working on our feature
   branch. Then we ensured that we had the latest master branch version from the
 origin repository. When then performed a rebase, this fast forwards our current
@@ -141,26 +141,26 @@ Interactive Rebase
   repository history.
 * git lets you "squash" these into one individual commit.
 * Type:
-    # git rebase -i master
+        # git rebase -i master
 * You'll get an editor window that looks like this:
-    pick 341e027 Added a new bullet point
-    pick 12fd986 Added an important bullet point
-    pick ae29d44 Done adding bullet points
+        pick 341e027 Added a new bullet point
+        pick 12fd986 Added an important bullet point
+        pick ae29d44 Done adding bullet points
 * Edit the file such that it looks like this:
-    pick 341e027 Added a new bullet point
-    squash 12fd986 Added an important bullet point
-    squash ae29d44 Done adding bullet points
+        pick 341e027 Added a new bullet point
+        squash 12fd986 Added an important bullet point
+        squash ae29d44 Done adding bullet points
 * Save and quit, you'll then get a new editor window that allows you to enter in
   the actual commit message, enter in something useful like this:
-    [#1234] Fixed spelling mistakes
+        [#1234] Fixed spelling mistakes
 
-    * Added a few bullet points 
-    * Fixed a few spelling mistakes
+        * Added a few bullet points 
+        * Fixed a few spelling mistakes
 * Save and quit.
 * Now switch back to the master branch and merge back your changes:
-    # git checkout master
-    # git merge 1234-spelling-mistake
-    # git push origin master
+        # git checkout master
+        # git merge 1234-spelling-mistake
+        # git push origin master
 
 
 Tagging Releases
@@ -169,12 +169,12 @@ Tagging Releases
 * Remember in the good ol' days of subversion where you would perform a copy of
   your entire trunk in order to tag a release?
 * git makes this far easier:
-    # git tag v1.0.0
-    # git tag
-    v1.0.0
+        # git tag v1.0.0
+        # git tag
+        v1.0.0
 * To then switch to this tag at a later date, type:
-    # git checkout v1.0.0
-* Can also digital sign tags with PGP. See [2]
+        # git checkout v1.0.0
+* Can also digital sign tags with PGP. 
 
 GUIs
 ----
@@ -188,7 +188,7 @@ GUIs
 But I'm forced to use subversion
 --------------------------------
 
-* You can use svk [3], it's a set of Perl scripts that sits on top of subversion
+* You can use [svk][svk], it's a set of Perl scripts that sits on top of subversion
   and lets you perform distributed development.
 * /git svn/ is a tool providing bidirectional flow of changes between a
   Subversion and a git repository.
@@ -211,6 +211,5 @@ the development process (ie: make sure tests are run before doing a commit)
 [mergetool]
 http://gitguru.com/2009/02/22/integrating-git-with-a-visual-merge-tool/
 "Integrating Git With a Visual Merge Tool"
-[1] http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
-[2] Digitally signing with PGP.
-[3] svk
+[workflow] http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
+[svk] http://svk.bestpractical.com/view/HomePage 
