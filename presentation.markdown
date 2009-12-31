@@ -62,14 +62,15 @@ Working with a remote repository
 --------------------------------
 
 * Push our repository into a remote one (github used for convenience):
-    # git remote add github git://github.com/mglazer/GitPresentation.git
-    # git push github master
+    # git remote add origin git@github.com:mglazer/GitPresentation.git
+    # git push origin master
 * Syntax of git push:
     git push <repository> <branch>
 * repository is the name of the remote repository, get listing by typing:
     # git remote -v
-    github	git://github.com/mglazer/GitPresentation.git (fetch)
-    github	git://github.com/mglazer/GitPresentation.git (push)
+    origin	git@github.com:mglazer/GitPresentation.git (fetch)
+    origin	git@github.com:mglazer/GitPresentation.git (push)
+
 * branch is the name of the branch to push to the remote repository. More on
   this later, *master* is an automatically created default.
 
@@ -97,7 +98,7 @@ Pulling in changes from a remote repository
     # git commit -am "Committing most recent changes"
     # git pull origin master
 * At this point there may be conflicts. /git mergetool/ helps here, but you can
-  also fix the problems yourself.
+  also fix the problems yourself. [See setting up mergetool][mergetool]
 * Once problems are fixed, type:
     # git add file_in_conflict.txt
     # git commit -am "Fixed merge conflicts"
@@ -191,22 +192,25 @@ But I'm forced to use subversion
   and lets you perform distributed development.
 * /git svn/ is a tool providing bidirectional flow of changes between a
   Subversion and a git repository.
-** I've never used it, has a long list of caveats and things it cannot do.
+    * I've never used it, has a long list of caveats and things it cannot do.
 
 Other neat git features
 -----------------------
 
 * Look in the .git directory (there's only one, it's at the base of your tree)
-** .git/config - holds handy configuration data about the current repository.
-** .git/description - use primarily by gitweb for providing a description of
+    * .git/config - holds handy configuration data about the current repository.
+    * .git/description - use primarily by gitweb for providing a description of
 your repository
-** .git/hooks - A number of hook scripts that can be run at various times during
+    * .git/hooks - A number of hook scripts that can be run at various times during
 the development process (ie: make sure tests are run before doing a commit)
 
 
     
     
 
+[mergetool]
+http://gitguru.com/2009/02/22/integrating-git-with-a-visual-merge-tool/
+"Integrating Git With a Visual Merge Tool"
 [1] http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
 [2] Digitally signing with PGP.
 [3] svk
