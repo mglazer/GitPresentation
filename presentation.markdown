@@ -216,3 +216,6 @@ http://gitguru.com/2009/02/22/integrating-git-with-a-visual-merge-tool/
 [svk] http://svk.bestpractical.com/view/HomePage 
 [vcs_info] http://kriener.org/articles/2009/06/04/zsh-prompt-magic "ZSH Prompt
 Magic"
+[gitbook] http://progit.org/ "Pro Git"
+[gitmergerebase] http://gitguru.com/2009/02/03/rebase-v-merge-in-git/ "Git
+Rebase vs. Merge"
